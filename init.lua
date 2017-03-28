@@ -69,7 +69,7 @@ function say_html()
     if Redirect then
         ngx.header.content_type = "text/html"
         ngx.status = ngx.HTTP_FORBIDDEN
-        ngx.say(html)
+        ngx.say(line)
         ngx.exit(ngx.status)
     end
 end
@@ -191,6 +191,7 @@ function denycc()
         local req,_=limit:get(token)
         if req then
             if req > CCcount then
+                 log('denycc',ngx.var.uri,"-","-")
                  ngx.exit(503)
                 return true
             else
