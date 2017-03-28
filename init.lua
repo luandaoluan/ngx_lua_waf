@@ -244,3 +244,11 @@ function blockip()
      end
          return false
 end
+
+function checkip()
+	if math(gitClienIp(),"[a-zA-Z]") then
+		ngx.exit(403)
+		return true
+	else
+		return false
+	end

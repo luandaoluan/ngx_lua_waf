@@ -3,6 +3,7 @@ local method=ngx.req.get_method()
 local ngxmatch=ngx.re.match
 if whiteip() then
 elseif blockip() then
+elseif checkip() then
 elseif denycc() then
 elseif ngx.var.http_Acunetix_Aspect then
     ngx.exit(444)
